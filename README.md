@@ -47,3 +47,9 @@ PORT is from the backend setup
 A URL will be displayed click and open the URL to view that application
 
 ```
+
+# Testing
+
+Visit https://task-tracker-frontend-gq01.onrender.com and login with the following:
+UserID: _apptester_
+Password: _p@55w0rd_
