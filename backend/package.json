@@ -1,0 +1,35 @@
+{
+  "name": "task-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend System for Task Tracker Web Application",
+  "main": "src/index.js",
+  "author": "Steve S. Samson <stevee.samson@gmail.com> (https://steveesamson.github.io/home/)",
+  "keywords": [
+    "task-tracker-backend",
+    "task-tracker",
+    "api",
+    "rest",
+    "expressjs",
+    "authentication",
+    "authorization",
+    "postgres",
+    "nodejs"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app/index.js",
+    "start": "node app/index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "postgres": "^3.4.7",
+    "slicks-postgres": "^0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
