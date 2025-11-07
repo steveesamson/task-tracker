@@ -7,7 +7,7 @@ import taskRoutes from "./routes/tasks.js";
 // Middleware to populate session with active session owner
 import { SessionUser } from "./security/index.js";
 
-const PORT = process.env.SERVER_PORT;
+const PORT = process.env.PORT || 5000;
 
 // Create application
 const app = express();
