@@ -1,17 +1,16 @@
--- DROP DATABASE tasksdb;
--- DROP ROLE task_tracker ;
+DROP DATABASE tasksdb;
+DROP ROLE task_tracker ;
 
--- DROP USER task_tracker;
+DROP USER task_tracker;
 
--- CREATE USER task_tracker WITH PASSWORD 't@5kTr@ck3r';
--- CREATE DATABASE tasksdb OWNER = task_tracker;
+CREATE USER task_tracker WITH PASSWORD '_your_password';
+CREATE DATABASE tasksdb OWNER = task_tracker;
 
 
+GRANT CONNECT ON DATABASE tasksdb TO task_tracker ;
+GRANT ALL PRIVILEGES ON DATABASE tasksdb TO task_tracker;
 
--- GRANT CONNECT ON DATABASE tasksdb TO task_tracker ;
--- GRANT ALL PRIVILEGES ON DATABASE tasksdb TO task_tracker;
-
--- \c tasksdb
+\c tasksdb
 
 
 CREATE TABLE users (
