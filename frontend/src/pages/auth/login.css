@@ -1,0 +1,20 @@
+.content {
+    margin-inline: auto;
+    width: 100%;
+}
+
+.login .logo-wrapper {
+    text-align: center;
+    color: var(--primary-thin);
+    margin-block-end: 1rem;
+}
+
+.login .logo-wrapper p {
+    color: var(--primary-thin);
+}
+
+@media screen and (min-width:60rem) {
+    .content {
+        width: 30rem;
+    }
+}

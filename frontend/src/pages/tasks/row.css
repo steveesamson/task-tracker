@@ -1,0 +1,51 @@
+p {
+    line-height: 1.5;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.row p:last-of-type {
+    margin-inline-start: 1rem;
+}
+
+strong {
+    font-weight: 800;
+    text-decoration: underline;
+    padding-inline-end: 0.5rem;
+}
+
+.status {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.35rem;
+}
+
+.status.todo {
+    color: var(--danger);
+    background-color: #f2e5e5;
+}
+
+.status.in-progress {
+    color: rgb(141, 94, 7);
+    background-color: #efece7;
+}
+
+.status.done {
+    color: var(--success);
+    background-color: #e5edeb;
+}
+
+.buttons.cell {
+    border-top: 1px solid var(--dark-medium);
+    padding-block-start: 0.5rem;
+    margin-block-start: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.button.complete {
+    color: var(--success);
+}

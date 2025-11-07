@@ -1,0 +1,44 @@
+.chart-root {
+    width: 300px;
+    height: 200px;
+}
+
+.Chart {
+    border: 1px solid #034659;
+    margin-inline: 2rem;
+    overflow-y: auto;
+}
+
+.Chart h2 {
+    color: #e2e9e6;
+}
+
+.Chart>article:last-of-type {
+    box-shadow: inset gray 0px 0px 60px -12px;
+}
+
+.Chart pre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: lightgreen;
+    text-align: left;
+    padding-left: 2rem;
+}
+
+@media screen and (min-width:40em) {
+    .Chart {
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr); */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Chart>* {
+        flex: 1;
+    }
+
+    .Chart>article:first-of-type {
+        order: 2;
+        border-left: 1px dashed #034659
+    }
+}

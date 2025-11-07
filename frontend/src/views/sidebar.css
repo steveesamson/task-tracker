@@ -1,0 +1,10 @@
+.logo-wrapper {
+    text-align: center;
+    color: var(--yellow);
+    margin-block-end: 1rem;
+    padding-block: 1rem;
+}
+
+.logo-wrapper p {
+    color: var(--yellow);
+}

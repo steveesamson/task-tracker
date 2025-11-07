@@ -1,0 +1,52 @@
+:root {
+    --column-size: 1;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--column-size), 1fr);
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.grid .card {
+    margin-bottom: unset;
+    padding: 1rem;
+}
+
+.grid h3,
+.grid .card {
+    text-align: center;
+}
+
+.grid .card.priority {
+    background-color: var(--dark-light);
+}
+
+.grid .card.alt {
+    background-color: var(--yellow);
+}
+
+.grid h3 {
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+
+@media screen and (min-width:670px) {
+    .grid {
+        --column-size: 2;
+    }
+}
+
+@media screen and (min-width:970px) {
+    .grid {
+        --column-size: 3;
+    }
+
+    .grid.charts {
+        --column-size: 2;
+    }
+
+}
