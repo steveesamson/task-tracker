@@ -48,8 +48,42 @@ A URL will be displayed click and open the URL to view that application
 
 ```
 
-# Testing
+## App Demo
+
+See a walk-through at: https://drive.google.com/file/d/1UCpfSsO53Tqf9gIQhzLgqkXO_Y5tGdxR/view?usp=sharing
+
+## Testing
 
 Visit https://task-tracker-frontend-gq01.onrender.com and login with the following:
+
 UserID: _apptester_
+
 Password: _p@55w0rd_
+
+## Technology and Architecture
+
+### Technology
+
+**Frontend**: React.js/TypeScript/Routing
+
+**Backend**: Node.js/express.js/JavaScript
+
+**Store**: PostgreSQL
+
+**JSON Web Token:** Security
+
+**Deployment**: Render
+
+### Architecture
+
+**Client**: Static Site
+
+**WebService(API):** REST API with express.js
+The API supports the following endpoints:
+
+- GET /tasks/:id?
+- POST /tasks
+- PUT /tasks/:id
+- DELETE /tasks/:id
+- GET /tasks/stats - Dashboard stats
+- POST /auth/login
