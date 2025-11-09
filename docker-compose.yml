@@ -1,0 +1,60 @@
+version: '3'
+services:
+  frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+        args:
+          WEB_PORT: ${WEB_PORT}
+      container_name: ${WEB_HOST}
+      env_file: .env
+      restart: always
+      ports:
+        - ${WEB_PORT}:${WEB_PORT}
+      volumes:
+        - ./frontend:/frontend
+        - frontend_modules_v:/frontend/node_modules
+      depends_on: [backend]
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        SERVER_PORT: ${PORT}
+    container_name: ${SERVER_HOST}
+    env_file: .env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./backend:/backend
+      - backend_modules_v:/backend/node_modules
+    depends_on:
+      database:
+        condition: service_healthy
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: ${DB_HOST}
+    env_file: .env
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - database_v:/var/lib/postgresql/data
+    command: "-p ${DB_PORT}"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -p ${DB_PORT} -U ${DB_USER} -d ${DB_NAME}"]
+      start_period: 0s
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  frontend_v:
+    name: "frontend_v"
+  frontend_modules_v:
+    name: "frontend_modules_v"
+  backend_modules_v:
+    name: "backend_modules_v"
+  database_v:
+    name: "database_v"
