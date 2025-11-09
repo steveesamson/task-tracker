@@ -1,52 +1,49 @@
-# Setting up Task Tracker
+# Setting Up Task Tracker Locally
 
 In the project directory,
-
-## Backend
-
-You need a PostgreSQL:
-Inside the /backend directory, do the following:
-Update and Run the `script/db.sql` on your DB.
-
 Create a `.env` file and update the following appropriately, to match values used in your `script/db.sql` with the values:
 
 ```shell
-DB_HOST=
-DB_PORT=
-DB_USER=
-DB_PASS=
-DB_NAME=
-PORT=
-SECRET=
+DB_NAME=tasksdb
+DB_PORT=5432
+DB_HOST=app.database
+DB_USER=task_tracker
+
+DB_PASS=<YOUR_PASSWORD_HERE> 
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+SERVER_HOST=app.server
+PORT=5050
+WEB_PORT=6060
+WEB_HOST=app.web
+SECRET=supersecretkey
+VITE_API_URL=http://127.0.0.1:5050
 
 ```
 
-- `npm install`
-- `npm start`
+Please update `YOUR_PASSWORD_HERE` in the backend/script/db.sql
+Your file tree should look like:
+├── README.md
+├── backend
+├── database
+├── docker-compose.yml
+└── frontend
+└── .env
 
-The above should start the server on port `PORT`.
-
-## Frontend
-
-Inside the /frontend directory, do the following:
-
-Create a `.env` file and update the following appropriately:
+Run the following command from the displayed directory:
 
 ```shell
-VITE_API_URL=http://127.0.0.1:{PORT}
 
-PORT is from the backend setup
-``
+docker compose --env-file .env up
 
-- `npm install`
-- `npm install -g serve`
-- `npm run build`
+You should see something like, assuming you used the above ports:
+app.server    | Task Tracker Backend runs at http://localhost:5050
+app.web       | INFO  Accepting connections at http://localhost:6060
 
-- `serve -s dist -l`
-
-A URL will be displayed click and open the URL to view that application
+Click on the app.web link: http://localhost:6060 to open the application.
 
 ```
+
 
 ## App Demo
 

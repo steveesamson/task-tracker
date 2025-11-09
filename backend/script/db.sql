@@ -3,7 +3,7 @@ DROP ROLE task_tracker ;
 
 DROP USER task_tracker;
 
-CREATE USER task_tracker WITH PASSWORD '_your_password';
+CREATE USER task_tracker WITH PASSWORD 'YOUR_PASSWORD_HERE';
 CREATE DATABASE tasksdb OWNER = task_tracker;
 
 

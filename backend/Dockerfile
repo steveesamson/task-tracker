@@ -1,6 +1,7 @@
-ARG SERVER_PORT=6000
 FROM node:20-alpine
-
+ARG SERVER_PORT
+RUN echo "Arg SERVER_PORT:${SERVER_PORT}"
+ENV PORT=${SERVER_PORT} 
 # Create app directory
 WORKDIR /backend
 
@@ -12,5 +13,7 @@ RUN npm install
 
 # Bundle app source
 # COPY . .
-EXPOSE ${SERVER_PORT}
+
+EXPOSE ${PORT}
+
 CMD [ "npm","start" ]

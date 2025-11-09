@@ -1,19 +1,21 @@
-version: '3'
 services:
   frontend:
       build:
-        context: ./frontend
         dockerfile: Dockerfile
+        context: ./frontend
         args:
           WEB_PORT: ${WEB_PORT}
+          VITE_API_URL: ${VITE_API_URL}
       container_name: ${WEB_HOST}
       env_file: .env
       restart: always
       ports:
         - ${WEB_PORT}:${WEB_PORT}
-      volumes:
-        - ./frontend:/frontend
-        - frontend_modules_v:/frontend/node_modules
+      networks:
+          - task-tracker-network
+      # volumes:
+      #   - ./frontend:/frontend
+      #   - frontend_modules_v:/frontend/node_modules
       depends_on: [backend]
 
   backend:
@@ -24,6 +26,8 @@ services:
         SERVER_PORT: ${PORT}
     container_name: ${SERVER_HOST}
     env_file: .env
+    networks:
+      - task-tracker-network
     ports:
       - ${PORT}:${PORT}
     volumes:
@@ -37,6 +41,8 @@ services:
       context: ./database
       dockerfile: Dockerfile
     container_name: ${DB_HOST}
+    networks:
+      - task-tracker-network
     env_file: .env
     ports:
       - ${DB_PORT}:${DB_PORT}
@@ -50,11 +56,16 @@ services:
       timeout: 5s
       retries: 5
 volumes:
-  frontend_v:
-    name: "frontend_v"
-  frontend_modules_v:
-    name: "frontend_modules_v"
+  # frontend_v:
+  #   name: "frontend_v"
+  # frontend_modules_v:
+  #   name: "frontend_modules_v"
   backend_modules_v:
     name: "backend_modules_v"
   database_v:
     name: "database_v"
+
+networks:
+  task-tracker-network:
+    driver: bridge  
+    
