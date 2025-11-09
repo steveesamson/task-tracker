@@ -23,12 +23,13 @@ VITE_API_URL=http://127.0.0.1:5050
 
 Please update `YOUR_PASSWORD_HERE` in the backend/script/db.sql
 Your file tree should look like:
-├── README.md
-├── backend
-├── database
-├── docker-compose.yml
-└── frontend
-└── .env
+
+- README.md
+- backend
+- database
+- docker-compose.yml
+- frontend
+- .env
 
 Run the following command from the displayed directory:
 
